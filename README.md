@@ -8,7 +8,7 @@ The purpose of these images is to provide a full featured web native Linux deskt
 These images contain the following services: 
 
 * [KasmVNC](https://www.kasmweb.com/kasmvnc) - The core technology for interacting with a containerized desktop from a web browser.
-* [Kclient](https://github.com/linuxserver/kclient) - NodeJS Iframe wrapper for KasmVNC providing audio and file access.
+* [Kclient](https://github.com/Deyvi-dev/vnc-kclient/) - NodeJS Iframe wrapper for KasmVNC providing audio and file access.
 * [NGINX](https://www.nginx.com/) - Used to serve the mix of KasmVNC and Kclient with the appropriate headers and provide basic auth.
 * [Docker](https://www.docker.com/) - Can be used for interacting with a mounted in Docker socket or if the container is run in privileged mode will start a [DinD](https://www.docker.com/blog/docker-can-now-run-within-docker/) setup.
 * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) - Sound subsystem used to capture audio from the active desktop session and send it to the browser via the Kclient helper application.
@@ -55,7 +55,7 @@ All base images are built for x86_64 and aarch64 platforms.
 Included in these base images is a simple [Openbox DE](http://openbox.org/) and the accompanying logic needed to launch a single application. Lets look at the bare minimum needed to create an application container starting with a Dockerfile: 
 
 ```
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:alpine317
+FROM ghcr.io/deyvi-dev/baseimgkasmvnc:latest
 RUN apk add --no-cache firefox
 COPY /root /
 ```

@@ -64,7 +64,7 @@ And we can define the application to start using:
 
 ```
 mkdir -p root/defaults
-echo "firefox" > /root/defaults/autostart
+echo "firefox" > root/defaults/autostart
 ```
 
 Resulting in a folder that looks like this: 

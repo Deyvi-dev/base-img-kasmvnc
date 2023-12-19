@@ -12,6 +12,11 @@ RUN \
   cd /src && \
   wget https://github.com/kasmtech/noVNC/tarball/${KASMWEB_RELEASE} -O - \
   | tar  --strip-components=1 -xz && \
+  rm app/images/icons/kasm_logo.svg
+
+COPY logo-img/kasm_logo.svg src/app/images/icons/kasm_logo.svg
+RUN \
+  cd /src && \
   npm install && \
   npm run-script build
 
@@ -240,6 +245,7 @@ LABEL "com.kasmweb.image"="true"
 # env
 ENV DISPLAY=:1 \
   PERL5LIB=/usr/local/bin \
+  VNC_RESOLUTION=1980x1024 \
   OMP_WAIT_POLICY=PASSIVE \
   GOMP_SPINCOUNT=0 \
   HOME=/config \
